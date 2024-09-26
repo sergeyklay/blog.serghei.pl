@@ -1,0 +1,14 @@
+{{- if eq .Kind "taxonomy" -}}
+    {{- $pages := .Pages -}}
+    {{- if gt (len $pages) 0 -}}
+        {{- $sorted := sort $pages "Lastmod" "desc" -}}
+        {{- $latestPage := index $sorted 0 -}}
+        {{- $latestDate := default $latestPage.Lastmod $latestPage.Date -}}
+        {{- $latestDateFormatted := $latestDate.Format "2006-01-02T15:04:05Z" -}}
+        {{- $latestDateFormatted -}}
+    {{- else -}}
+        {{- now.Format "2006-01-02T15:04:05Z" -}}
+    {{- end -}}
+{{- else -}}
+    {{- .Lastmod | default .Date | time.Format "2006-01-02T15:04:05Z" -}}
+{{- end -}}

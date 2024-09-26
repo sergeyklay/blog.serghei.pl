@@ -1,0 +1,11 @@
+{{- $author := "" -}}
+
+{{- with .Params.author -}}
+    {{- if (reflect.IsSlice .) -}}
+        {{- $author = delimit . ", " -}}
+    {{- else -}}
+        {{- $author = . -}}
+    {{- end -}}
+{{- end -}}
+
+{{- return $author -}}

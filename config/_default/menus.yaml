@@ -1,0 +1,27 @@
+# For more see https://gohugo.io/content-management/menus/
+
+main:                # sections in the website sidebar
+  - identifier: home # section id
+    name: Home       # section display title
+    pageRef: /       # path to the section
+    weight: 1        # order of sections
+
+  - identifier: about
+    name: About
+    pageRef: /about
+    weight: 2
+
+  - identifier: rss
+    name: RSS
+    url: /rss.xml    # use here url instead of pageRef
+    weight: 3
+
+  - identifier: archive
+    name: Archive
+    pageRef: /posts
+    weight: 4
+
+#  - identifier: tags
+#    name: Tags
+#    pageRef: /tags
+#    weight: 4

@@ -1,0 +1,30 @@
+{{- if eq hugo.Environment "production" }}
+    {{- if not site.Config.Privacy.GoogleAnalytics.Disable }}
+        {{- with site.Config.Services.GoogleAnalytics }}
+            {{- $gaParams := dict "analyticsCode" (.ID) -}}
+            {{- $gaParams = merge $gaParams (dict "respectDoNotTrack" site.Config.Privacy.GoogleAnalytics.RespectDoNotTrack | default true) }}
+            {{- $gaParams = merge $gaParams (dict "anonymizeIp" site.Params.Privacy.GoogleAnalytics.AnonymizeIp | default true) }}
+
+            {{- $gaScript := slice -}}
+            {{- $gaScript = $gaScript | append (resources.Get "js/gtag.js") -}}
+            {{- $gaScript = $gaScript | resources.Concat "js/analytics-bundle.js" -}}
+            {{- $gaScript = $gaScript | js.Build (dict "format" "iife" "target" "es2015" "minify" true "params" $gaParams) -}}
+            {{- $gaScript = $gaScript | fingerprint -}}
+
+            <script src="{{ $gaScript.RelPermalink }}" integrity="{{ $gaScript.Data.Integrity }}" crossorigin="anonymous"></script>
+        {{- end -}}
+    {{- else if not site.Params.Privacy.GoogleTagManager.Disable }}
+        {{- with site.Params.Services.GoogleTagManager }}
+            {{- $gtmParams := dict "gtmCode" (.ID) -}}
+            {{- $gtmParams = merge $gtmParams (dict "respectDoNotTrack" site.Params.Privacy.GoogleTagManager.RespectDoNotTrack | default true) }}
+
+            {{- $gtmScript := slice -}}
+            {{- $gtmScript = $gtmScript | append (resources.Get "js/gtm.js") -}}
+            {{- $gtmScript = $gtmScript | resources.Concat "js/analytics-bundle.js" -}}
+            {{- $gtmScript = $gtmScript | js.Build (dict "format" "iife" "target" "es2015" "minify" true "params" $gtmParams) -}}
+            {{- $gtmScript = $gtmScript | fingerprint -}}
+
+            <script src="{{ $gtmScript.RelPermalink }}" integrity="{{ $gtmScript.Data.Integrity }}" crossorigin="anonymous"></script>
+        {{- end -}}
+    {{ end }}
+{{ end }}

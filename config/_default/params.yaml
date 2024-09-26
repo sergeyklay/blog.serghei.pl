@@ -1,0 +1,64 @@
+# Site description. Used in meta description
+description: >-
+  Tech enthusiast, engineer, and nerd. Specializing in creating smart products and automating processes.
+  I enjoy gadgets, hiking, and biking. Proficient in Emacs and Org mode.
+
+# SEO keywords. Used in 'meta name="keywords"' tag.
+# May be overridden by .Keywords or .Tags in front matter.
+keywords:
+  - Serghei
+  - Iakovlev
+  - Serghei Iakovlev
+  - blog
+  - emacs
+  - org
+  - org-mode
+  - orgmode
+  - elisp
+
+# Colour scheme. Options: dark, light, white, classic
+colorScheme: classic
+
+logo: images/logo.png
+
+# Posts date format, for example: 2006-01-02
+# For details see https://gohugo.io/functions/format/#hugo-date-and-time-templating-reference
+dateFormat: 2006-01-02
+
+# Sections to be displayed in:
+# - main page
+# - RSS feeds
+# - search index
+# - ...
+mainSections:
+  - posts
+
+showAllPostsArchive: true
+
+# Home page settings
+mainSectionTitle: Posts
+mainSectionUrl: /posts
+
+postsOnHomePage: 10
+
+# Show projects list by default (if projects data file exists).
+showProjectsList: true
+projectsSectionTitle: Projects
+projectsUrl: "https://github.com/sergeyklay?tab=repositories&q=&type=source&language=&sort=stargazers"
+
+# Post page settings
+showUpdated: true
+showReadTime: true
+tocInline: false
+showAuthor: false
+
+privacy:
+  googleAnalytics:
+    anonymizeIP: true
+  googleTagManager:
+    disable: false
+    respectDoNotTrack: true
+
+services:
+  googleTagManager:
+    id: GTM-5C92Z8CB

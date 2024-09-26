@@ -1,0 +1,12 @@
+<footer role="contentinfo" id="footer">
+    <div class="footer-left">
+        CC BY 4.0 licensed {{ if .Site.Copyright }}
+            {{- print .Site.Copyright | markdownify -}}
+        {{ else -}}
+            &copy; {{ now.Format "2006" }} {{ print .Site.Title | markdownify -}}
+        {{- end }}
+    </div>
+    <div class="footer-left">
+        {{ partial "menu.html" (dict "menuID" "main" "position" "footer" "page" .) }}
+    </div>
+</footer>

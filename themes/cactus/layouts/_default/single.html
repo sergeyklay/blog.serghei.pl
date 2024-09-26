@@ -1,0 +1,19 @@
+{{ define "main" }}
+
+{{/* This template is for a single page (not a post) */}}
+{{/* To override this template in a theme, create a file at layouts/page/single.html */}}
+
+<article class="post"
+         itemscope itemtype="https://schema.org/BlogPosting"
+         role="document"{{ with .Params.lang }} lang="{{ . }}"{{ end }}>
+    <div class="content" itemprop="articleBody">
+        {{ if (eq .Type "search") }}
+            {{/* TODO: search https://gohugo.io/tools/search/ */}}
+        {{ else }}
+            <h1>{{ .Params.pageTitle | default .Title }}</h1>
+            {{ .Content }}
+        {{ end }}
+    </div>
+</article>
+
+{{- end }}

@@ -1,0 +1,14 @@
+{{ $sassTemplate := resources.Get "scss/style.scss" }}
+
+{{ $stylesheetScreen := $sassTemplate | resources.ExecuteAsTemplate "scss/style.scss" . | css.Sass }}
+{{ $stylesheet := slice $stylesheetScreen | resources.Concat "css/style.css" }}
+
+{{- with $stylesheet }}
+  {{- if eq hugo.Environment "development" }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}">
+  {{- else }}
+    {{- with . | resources.Minify | resources.Fingerprint }}
+      <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+    {{- end }}
+  {{- end }}
+{{- end }}

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="{{ site.Language.LanguageCode }}"
+      dir="{{ or site.Language.LanguageDirection `ltr` }}"
+      itemscope
+      itemtype="https://schema.org/WebPage">
+{{ partial "head.html" . }}
+<body class="max-width mx-auto px3 ltr">
+  {{ if and (not site.Params.Privacy.GoogleTagManager.Disable) (not (eq .Kind "404")) }}
+    {{ with site.Params.Services.GoogleTagManager }}
+      <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id={{ (.ID) }}"
+                height="0"
+                width="0"
+                style="display:none;visibility:hidden"></iframe>
+      </noscript>
+    {{ end }}
+  {{ end }}
+
+  <div class="content index py4">
+    {{/* TODO: Check mainSections */}}
+    {{ if and (eq .Type "posts") (eq .Kind "page") }}
+      {{/* Single post */}}
+      {{ partial "page_nav.html" . }}
+    {{ else }}
+      {{/* Any other page */}}
+      {{ partial "header.html" . }}
+    {{ end }}
+
+    <main>
+      {{ block "main" . }}{{ end }}
+    </main>
+
+    {{ partial "footer.html" . }}
+  </div>
+</body>
+<link rel="stylesheet" href={{ "lib/font-awesome/css/all.min.css" | relURL }}>
+</html>

@@ -1,0 +1,24 @@
+@mixin antialias() {
+  -moz-osx-font-smoothing: grayscale;
+   -webkit-font-smoothing: antialiased;
+}
+
+@mixin hyphens($value) {
+  -webkit-hyphens: $value;
+     -moz-hyphens: $value;
+      -ms-hyphens: $value;
+          hyphens: $value;
+}
+
+@mixin underline($size, $color) {
+  background-image: linear-gradient(transparent, transparent $size, $color $size, $color);
+  background-position: bottom;
+  background-size: 100% 6px;
+  background-repeat: repeat-x;
+}
+
+@mixin text-size-adjust($value) {
+  -webkit-text-size-adjust: $value;
+      -ms-text-size-adjust: $value;
+          text-size-adjust: $value;
+}

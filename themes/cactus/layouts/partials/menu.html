@@ -1,0 +1,78 @@
+{{- /*
+Renders a menu for the given menu ID.
+
+@context {page} page The current page.
+@context {string} menuID The menu ID.
+@context {string} position Any string represent the position of the menu.
+
+@example: {{ partial "menu.html" (dict "menuID" "main" "position" "header" "page" .) }}
+*/}}
+
+{{- $page := .page }}
+{{- $menuID := .menuID }}
+{{- $position := .position }}
+
+{{- with index site.Menus $menuID }}
+  {{ if eq $position "sidebar" }}
+    <span id="nav">
+      <ul>
+        {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+      </ul>
+    </span>
+  {{ else }}
+    <nav id="nav">
+      <ul>
+        {{- if eq $position "header" }}
+          <li class="icon">
+            <a href="#" aria-label="Menu">
+              <i class="fas fa-bars fa-2x" aria-hidden="true"></i>
+            </a>
+          </li>
+        {{- end }}
+        {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+      </ul>
+    </nav>
+  {{ end }}
+{{- end }}
+
+{{- define "partials/inline/menu/walk.html" }}
+  {{- $page := .page }}
+  {{- range $i, $e := .menuEntries }}
+    {{- $attrs := dict "href" $e.URL }}
+
+    {{- $identifier := "" }}
+    {{- with $e.Identifier }}
+      {{- $identifier = $e.Identifier }}
+    {{- end }}
+
+    {{- if $page.IsMenuCurrent .Menu $e }}
+      {{- $attrs = merge $attrs (dict "aria-current" "page" "class" "active menu-item") }}
+    {{- else if $page.HasMenuCurrent .Menu $e }}
+      {{- $attrs = merge $attrs (dict "aria-current" "true" "class" "menu-item") }}
+    {{- else }}
+      {{- $attrs = merge $attrs (dict "class" "menu-item") }}
+    {{- end }}
+
+    {{- $attrs = merge $attrs (dict "id" (printf "menu-item-%s" $identifier)) }}
+
+    {{- $u := urls.Parse $e.URL }}
+    {{- if $u.IsAbs }}
+      {{- $attrs = merge $attrs (dict "target" "_blank" "rel" "noopener noreferrer external") }}
+    {{- end }}
+
+    <li>
+      <a
+         {{- range $k, $v := $attrs }}
+           {{- with $v }}
+         {{- printf " %s=%q" $k $v | safeHTMLAttr }}
+           {{- end }}
+         {{- end -}}
+      >{{ $e.Name  }}</a>
+      {{- with .Children }}
+        <ul>
+          {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+        </ul>
+      {{- end }}
+    </li>
+  {{- end }}
+{{- end }}

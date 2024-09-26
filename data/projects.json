@@ -1,0 +1,24 @@
+{
+  "list": [
+    {
+      "name":"BNF Mode",
+      "url":"https://github.com/sergeyklay/bnf-mode",
+      "desc":"A GNU Emacs major mode for editing BNF grammars."
+    },
+    {
+      "name":"Ed Theme",
+      "url":"https://github.com/sergeyklay/gohugo-theme-ed/",
+      "desc":"A Hugo theme designed for textual editors based on minimal computing principles, and focused on legibility, durability, ease and flexibility."
+    },
+    {
+      "name":"Gstore",
+      "url":"https://github.com/sergeyklay/gstore",
+      "desc":"A dead simple tool to synchronize GitHub repositories of your organizations."
+    },
+    {
+      "name":"setup-specmatic",
+      "url":"https://github.com/airslate-oss/setup-specmatic",
+      "desc":"Set up your GitHub Actions workflow with a specific version of specmatic."
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "server": "HUGO_RESOURCEDIR='./resources' HUGO_ENV=development hugo server --logLevel info --buildDrafts --buildFuture --ignoreCache --disableFastRender",
+    "build": "HUGO_RESOURCEDIR='./resources' HUGO_ENV=production hugo --gc --logLevel info --cleanDestinationDir --printUnusedTemplates --printPathWarnings --printMemoryUsage --printI18nWarnings --buildDrafts --buildExpired --buildFuture --forceSyncStatic"
+  }
+}

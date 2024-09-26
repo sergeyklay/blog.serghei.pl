@@ -1,0 +1,59 @@
+{{ define "main" }}
+    <section id="about">
+        {{ with .Site.Params.description }}
+            <p>{{ . | $.Page.RenderString }}</p>
+        {{ end }}
+    </section>
+
+    <section id="writing">
+        {{ $mainSections := .Site.Params.mainSections | default (slice "posts") }}
+        {{ $mainPosts := (sort ( where .Site.RegularPages "Type" "in" $mainSections ) "Date" "desc") }}
+
+        <h2 class="h1">
+            <a href="{{ .Site.Params.mainSectionUrl | relURL }}">
+                {{ .Site.Params.mainSectionTitle | default "Writings" }}
+            </a>
+        </h2>
+
+        {{ $dataFormat := .Site.Params.dateFormat | default "2006-01-02" }}
+        <ul class="post-list">
+            {{ range (first (.Site.Params.postsOnHomePage | default 10) $mainPosts) }}
+            <li class="post-item">
+                <div class="meta">
+                    <time datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}' itemprop="datePublished">
+                        {{- .Date | time.Format $dataFormat -}}
+                    </time>
+                </div>
+                <span>
+                    <a href="{{ .Permalink }}">
+                        {{ if .Title }} {{- .Title -}} {{ else }} {{- print "Untitled" -}}{{ end }}
+                    </a>
+                </span>
+            </li>
+            {{ end }}
+        </ul>
+    </section>
+
+    {{ with .Site.Params.showProjectsList }}
+        {{ $projectsUrl := urls.Parse (site.Params.projectsUrl | default "/") }}
+        <section id="projects">
+            <h2 class="h1">
+                <a href="{{ $projectsUrl.String  }}"
+                   {{ if $projectsUrl.IsAbs }}rel="nofollow noopener noreferrer" target="_blank"{{ end }}>
+                    {{ site.Params.projectsSectionTitle | default "Projects" }}
+                </a>
+            </h2>
+
+            <ul class="project-list">
+                {{ range site.Data.projects.list }}
+                    <li class="project-item">
+                        <a href="{{ .url }}" rel="nofollow noopener noreferrer external" target="_blank">
+                            {{- .name -}}
+                        </a>:
+                        <p>{{ .desc | markdownify }}</p>
+                    </li>
+                {{ end }}
+            </ul>
+        </section>
+    {{ end }}
+{{ end }}

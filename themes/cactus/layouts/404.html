@@ -1,0 +1,16 @@
+{{ define "main" }}
+    <section>
+        <article class='post'
+                 itemscope itemtype="https://schema.org/BlogPosting"
+                 role="document"{{ with .Params.lang }} lang="{{ . }}"{{ end }}>
+            <div class="content" itemprop="articleBody">
+                <h1 itemprop="name">Oops! Page not found.</h1>
+                <p>
+                    It seems the page you're looking for doesn't exist or
+                    has moved. Let’s head back and find something cool!
+                </p>
+                <p><a href="{{ "/" | relURL }}">&larr;&nbsp;Take me home</a>.</p>
+            </div>
+        </article>
+    </section>
+{{ end }}

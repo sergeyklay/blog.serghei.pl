@@ -1,0 +1,61 @@
+{{ define "main" }}
+
+{{/* This template is for list of all publications in a Term (for example a Tag) */}}
+{{/* You can access this page by visiting an URL like /tags */}}
+
+<article class="post" itemscope itemtype="https://schema.org/BlogPosting">
+    <div class="content" itemprop="articleBody">
+        {{ if (eq .Type "tags")}}
+        <div id="tag-cloud">
+            {{ if (eq (len .Data.Terms) 0) }}
+                <div class="tag-cloud-title">No tags</div>
+            {{ else }}
+                <div class="tag-cloud-title">
+                    <h1 class="posttitle" itemprop="name headline">Tags Cloud</h1>
+                </div>
+            {{ end }}
+            <div class="tag-cloud-tags">
+                {{ $allRegularPagesCount := len .Site.RegularPages }}
+                {{ $maxFontSize := 2 }}
+                {{ $minFontSize := 0.85 }}
+                {{ $baseFontSize := 0.85 }}
+                {{ $scaleFactor := 1.15 }}
+
+                {{ range $tag, $taxonomy := .Site.Taxonomies.tags.ByCount }}
+                    {{ $fontSize := add $baseFontSize (mul $scaleFactor (div (float $taxonomy.Count) $allRegularPagesCount)) }}
+                    {{ $finalFontSize := cond (gt $fontSize $maxFontSize) $maxFontSize (cond (lt $fontSize $minFontSize) $minFontSize $fontSize) }}
+                    <a style="font-size: {{ $finalFontSize }}rem;"
+                       href="{{ $taxonomy.Page.Permalink }}"
+                       data-tag-index="{{ $tag }}">
+                        {{- $taxonomy.Name -}}
+                    </a>
+                {{ end }}
+            </div>
+        </div>
+        {{ else if (eq .Type "categories")}}
+        <div id="categories">
+            {{ if (eq (len .Data.Terms) 0) }}
+                <div class="category-list-title">
+                    No categories
+                </div>
+            {{ else }}
+                <div class="category-list-title">
+                    <h1 class="posttitle" itemprop="name headline">Article Categories</h1>
+                </div>
+            {{ end }}
+            <div class="category-list">
+                <ul class="category-list">
+                    {{ range .Data.Terms.Alphabetical }}
+                    <li class="category-list-item">
+                        <a class="category-list-link" href="{{ .Page.Permalink }}">{{ .Page.Title }}</a>
+                        <span class="category-list-count">{{ .Count }}</span>
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</article>
+
+{{ end }}

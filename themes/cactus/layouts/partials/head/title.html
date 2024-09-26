@@ -1,0 +1,11 @@
+{{- if or .IsHome (eq .Page.Title .Site.Title) -}}
+    Home | {{- .Site.Title -}}
+{{- else if .Params.hide_site_title -}}
+    {{ .Page.Title }}
+{{- else if and (eq .Kind "term") (eq .Data.Singular "tag") -}}
+    {{- with .Page.Title }}Publications tagged {{ . }} - {{ end }}{{ site.Title -}}
+{{- else if .Page.Title -}}
+    {{- with .Page.Title }}{{ . }} | {{ end }}{{ site.Title -}}
+{{- else -}}
+    {{ .Site.Title }}
+{{- end -}}

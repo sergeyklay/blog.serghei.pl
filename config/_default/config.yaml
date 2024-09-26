@@ -1,0 +1,111 @@
+baseURL: https://blog.serghei.pl/
+
+languageCode: en-us
+defaultContentLanguage: en
+
+copyright: © 2024 Serghei Iakovlev
+
+disableHugoGeneratorInject: true
+
+# Keep title short to prevent overflow.
+# There’s no official guidance on this, but 40 characters for
+# mobile and 60 for desktop is roughly the sweet spot.
+#
+# NB: Final title of shareable pages will be this plus the
+#     title of the page. Eg. "Archive - Serghei Iakovlev"
+title: Serghei's Blog
+
+enableRobotsTXT: true
+
+# When using ref or relref to resolve page links and a link cannot
+# resolve, it will be logged with this log level.
+refLinksErrorLevel: WARNING
+
+theme: cactus
+
+# We have just the default tags and categories taxonomy.
+taxonomies:
+  tag: tags
+  category: categories
+
+outputs:
+  home: [HTML, RSS, MANIFEST]
+  section: [HTML, RSS]
+  page: [HTML]
+  taxonomy:
+      - HTML
+      - RSS
+  term: [HTML]
+
+outputFormats:
+  RSS:
+    mediaType: application/rss+xml
+    baseName: rss
+
+  MANIFEST:
+    # The .webmanifest extension is specified in the Media type registration
+    # section of the specification (the response of the manifest file should
+    # return Content-Type: application/manifest+json).
+    #
+    # For more see: https://w3c.github.io/manifest/#media-type-registration=
+    name: Manifest
+    mediaType: application/manifest+json
+    baseName: manifest
+    rel: manifest
+    isPlainText: true
+    isHTML: false
+    noUgly: false
+    notAlternative: true
+
+
+privacy:
+  googleAnalytics:
+    # Should be true if you want to use Google Tag Manager instead of Google Analytics.
+    disable: true
+    respectDoNotTrack: true
+
+services:
+  googleAnalytics:
+      id: G-CGD82RSW76
+
+# For more see https://gohugo.io/getting-started/configuration-markup/
+markup:
+  defaultMarkdownHandler: goldmark
+  tableOfContents:
+    endLevel: 4
+    ordered: false
+    startLevel: 2
+  highlight:
+    codeFences: true
+    guessSyntax: false
+    hl_Lines: ""
+    lineNoStart: 1
+    lineNos: false
+    lineNumbersInTable: true
+    noClasses: true
+    style: catppuccin-latte
+    tabWidth: 4
+  goldmark:
+    renderer:
+      unsafe: true
+    parser:
+      attribute:
+        block: false
+
+# If enableGitInfo is true, it will override any lastmod dates in our
+# front matter. We should at least allow ourselves to manually override
+# this value in the front matter.
+frontmatter:
+  lastmod:
+    - lastmod
+    - ':git'
+    - modified
+    - date
+    - publishdate
+    - pubdate
+    - published
+
+module:
+  hugoVersion:
+    extended: true
+    min: '0.134.0'

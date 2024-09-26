@@ -1,0 +1,16 @@
+<meta name="description" content="{{ partial "head/description.html" . }}">
+
+{{- if eq .Kind "404" }}
+    <meta name="robots" content="noindex,nofollow">
+{{ else }}
+    {{- if and site.Config.Privacy.GoogleAnalytics.Disable site.Params.Privacy.GoogleTagManager.Disable }}
+        <meta name="referrer" content="no-referrer">
+    {{- end }}
+
+    <meta name="keywords" content="{{ partial "head/keywords.html" . }}">
+    {{- $author := partial "head/author.html" . }}
+    {{- if $author }}
+        <meta name="author" content="{{ $author }}">
+    {{- end }}
+    <meta name="last-modified" content='{{ partial "head/lastmod.html" . }}'>
+{{- end -}}
