@@ -13,4 +13,7 @@
   {{- end }}
 {{- end }}
 
-{{ range .Site.Params.css }}<link rel="stylesheet" href="{{ . | absURL }}">{{ end }}
+{{ range .Site.Params.css }}
+  {{ $style := resources.Get . }}
+  <link rel="stylesheet" href="{{ $style.Permalink  }}">
+{{ end }}

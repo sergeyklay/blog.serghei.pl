@@ -6,7 +6,6 @@
 - Add `manifest.webmanifest` support
 - Add Google Tag Manager support
 - Add ability to hide site title using `hide_site_title` and use only page title
--
 
 ## Changed
 
@@ -16,6 +15,8 @@
 - Increase font size for the article sidebar
 - Simplified setting of language and direction for the site by using the
   `site.Language.LanguageCode` and `site.Language.LanguageDirection` variables.
+- Theme now looks for custom CSS files in the `assets/css` directory instead of
+  the `static/css` directory.
 
 ## Removed
 
