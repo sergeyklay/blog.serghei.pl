@@ -12,3 +12,5 @@
     {{- end }}
   {{- end }}
 {{- end }}
+
+{{ range .Site.Params.css }}<link rel="stylesheet" href="{{ . | absURL }}">{{ end }}

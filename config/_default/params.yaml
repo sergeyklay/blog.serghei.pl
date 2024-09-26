@@ -52,6 +52,15 @@ showReadTime: true
 tocInline: false
 showAuthor: false
 
+# You can add multiple custom stylesheets which will
+# be loaded after the main theme css. The path is relative
+# to the static folder.
+css:
+  # For example, this line will load the CSS-file
+  # placed at /static/css/custom.css:
+  #
+  # - css/custom.css
+
 privacy:
   googleAnalytics:
     anonymizeIP: true
