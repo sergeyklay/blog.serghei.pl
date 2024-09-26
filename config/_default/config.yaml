@@ -1,8 +1,5 @@
 baseURL: https://blog.serghei.pl/
 
-languageCode: en-us
-defaultContentLanguage: en
-
 copyright: © 2024 Serghei Iakovlev
 
 disableHugoGeneratorInject: true

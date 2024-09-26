@@ -6,8 +6,8 @@
   "name": {{ site.Title | htmlUnescape | jsonify }},
   {{ with site.Params.tagline }}"short_name": {{ . | htmlUnescape | jsonify }},{{ end }}
   {{ with site.Params.description }}"description": {{ . | htmlUnescape | jsonify }},{{ end }}
-  "lang": "{{ site.LanguageCode | default site.Language.Lang }}",
-  "dir": {{ (or site.Language.LanguageDirection `ltr`) | jsonify }},
+  "lang": "{{ site.Language.LanguageCode }}",
+  "dir": "{{ or site.Language.LanguageDirection `ltr` }}",
   "start_url": {{ (printf "/%s" $url) | jsonify }},
   "display": "fullscreen",
   "theme_color": "#fafafa",
