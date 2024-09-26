@@ -16,7 +16,7 @@ Renders a menu for the given menu ID.
   {{ if eq $position "sidebar" }}
     <span id="nav">
       <ul>
-        {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+        {{- partial "inline/menu/walk.html" (dict "page" $page "position" $position "menuEntries" .) }}
       </ul>
     </span>
   {{ else }}
@@ -29,7 +29,7 @@ Renders a menu for the given menu ID.
             </a>
           </li>
         {{- end }}
-        {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+        {{- partial "inline/menu/walk.html" (dict "page" $page "position" $position "menuEntries" .) }}
       </ul>
     </nav>
   {{ end }}
@@ -37,6 +37,7 @@ Renders a menu for the given menu ID.
 
 {{- define "partials/inline/menu/walk.html" }}
   {{- $page := .page }}
+  {{- $position := .position }}
   {{- range $i, $e := .menuEntries }}
     {{- $attrs := dict "href" $e.URL }}
 
@@ -53,7 +54,7 @@ Renders a menu for the given menu ID.
       {{- $attrs = merge $attrs (dict "class" "menu-item") }}
     {{- end }}
 
-    {{- $attrs = merge $attrs (dict "id" (printf "menu-item-%s" $identifier)) }}
+    {{- $attrs = merge $attrs (dict "id" (printf "menu-item-%s-%s" $position $identifier)) }}
 
     {{- $u := urls.Parse $e.URL }}
     {{- if $u.IsAbs }}
