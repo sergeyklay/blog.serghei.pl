@@ -3,7 +3,6 @@
         {{- with site.Config.Services.GoogleAnalytics }}
             {{- $gaParams := dict "analyticsCode" (.ID) -}}
             {{- $gaParams = merge $gaParams (dict "respectDoNotTrack" site.Config.Privacy.GoogleAnalytics.RespectDoNotTrack | default true) }}
-            {{- $gaParams = merge $gaParams (dict "anonymizeIp" site.Params.Privacy.GoogleAnalytics.AnonymizeIp | default true) }}
 
             {{- $gaScript := slice -}}
             {{- $gaScript = $gaScript | append (resources.Get "js/gtag.js") -}}

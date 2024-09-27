@@ -62,8 +62,6 @@ showAuthor: false
 css: []
 
 privacy:
-  googleAnalytics:
-    anonymizeIP: true
   googleTagManager:
     disable: false
     respectDoNotTrack: true
