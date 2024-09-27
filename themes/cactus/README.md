@@ -49,3 +49,24 @@ The currently supported themes are: dark, light, white, and classic.
 
 If no value is provided, or if you remove the `colorTheme` parameter altogether,
 the theme defaults to white.
+
+### Custom CSS
+
+At the moment, the theme does not support arbitrary changes to fonts, custom
+colors, or other visual elements beyond those predefined by the theme. However,
+the theme provides a way for you to add your own custom styles to your project.
+
+To do this, add the following to your project configuration:
+
+```yaml
+params:
+  css:
+    - css/custom.css
+```
+
+You can add multiple custom stylesheets which will be loaded after the main
+theme css. For example, the above line will load the CSS-file placed at
+`assets/css/custom.css`.
+
+This allows you to override or extend the theme’s default styles with your own
+customizations.
