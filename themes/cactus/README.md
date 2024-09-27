@@ -1,12 +1,12 @@
-# Cactus 2 - A Modern Take on the Cactus Theme for Hugo
+# Cactus 2
 
-A hugo theme for personal blog.
+A Modern Take on the Cactus Theme for Hugo.
 
 ## Overview
 
 This project is a complete reimplementation of the
 [Cactus Theme](https://github.com/monkeyWzr/hugo-theme-cactus), initially
-created by [monkeyWzr](https://github.com/monkeyWzr) for Hugo. The original
+created by [Zeran Wu](https://github.com/monkeyWzr) for Hugo. The original
 theme has not been actively maintained for over five years, with issues
 unresolved and pull requests ignored. Given the lack of updates and the
 evolving needs of modern web development, I have decided to rebuild this
@@ -17,7 +17,7 @@ maintainability, and new features, all while maintaining the aesthetic and
 structure that made the original theme popular.
 
 All credit for the original design and inspiration goes to
-[monkeyWzr](https://github.com/monkeyWzr). This project is not affiliated with
+[Zeran Wu](https://github.com/monkeyWzr). This project is not affiliated with
 them and should be considered an independent evolution of their work.
 
 ## Changes from the Original Theme
@@ -66,7 +66,9 @@ params:
 
 You can add multiple custom stylesheets which will be loaded after the main
 theme css. For example, the above line will load the CSS-file placed at
-`assets/css/custom.css`.
+`assets/css/custom.css`. The original theme used the `static/css` directory, but
+this has been changed to `assets/css` to align with Hugo’s asset management
+system. Please note that the path is relative to the root of your project.
 
 This allows you to override or extend the theme’s default styles with your own
 customizations.
