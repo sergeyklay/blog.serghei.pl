@@ -40,4 +40,7 @@
 - (PR [#135](https://github.com/monkeyWzr/hugo-theme-cactus/pull/135))
 - Correct some social share links
 - Correct mixins definition (order of browser prefixes)
-- Use JetBrains Mono font only for `pre` and `code`, and Inconsolate for the rest
+- Use JetBrains Mono font only for `pre` and `code`, and Inconsolata for the
+  rest of content
+- Correct placement of `blockquote`, `.pullquote`, and `.caption` style
+  definition in SCSS
