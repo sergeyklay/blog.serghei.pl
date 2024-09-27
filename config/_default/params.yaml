@@ -17,7 +17,7 @@ keywords:
   - elisp
 
 # Colour scheme. Options: dark, light, white, classic
-colorScheme: classic
+colorTheme: classic
 
 logo: images/logo.png
 

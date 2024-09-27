@@ -1,5 +1,7 @@
 # Cactus 2 - A Modern Take on the Cactus Theme for Hugo
 
+A hugo theme for personal blog.
+
 ## Overview
 
 This project is a complete reimplementation of the
@@ -14,8 +16,6 @@ This version introduces significant improvements in terms of performance,
 maintainability, and new features, all while maintaining the aesthetic and
 structure that made the original theme popular.
 
-## Original Author
-
 All credit for the original design and inspiration goes to
 [monkeyWzr](https://github.com/monkeyWzr). This project is not affiliated with
 them and should be considered an independent evolution of their work.
@@ -24,3 +24,28 @@ them and should be considered an independent evolution of their work.
 
 For details on the changes from the original theme, please refer to the
 [CHANGELOG](CHANGELOG.md).
+
+## Configuration
+
+### Color themes
+
+To change the main color theme, you can use the `colorTheme` configuration
+parameter, as shown below:
+
+```yaml
+params:
+  colorTheme: dark
+```
+
+The demo site uses a feature that splits configuration into separate files,
+so if your project follows the same structure, the `colorTheme` parameter should
+be located in the `params.yaml` file, simply at the root, like this:
+
+```yaml
+colorTheme: light
+```
+
+The currently supported themes are: dark, light, white, and classic.
+
+If no value is provided, or if you remove the `colorTheme` parameter altogether,
+the theme defaults to white.

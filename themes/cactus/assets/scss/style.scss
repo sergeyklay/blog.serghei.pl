@@ -1,5 +1,5 @@
 @import "variables";
-@import "colors/{{ .Param "colorScheme" | default "white" }}";
+@import "colors/{{ .Param `colorTheme` | default `white` }}";
 @import "util";
 @import "mixins";
 @import "extend";
