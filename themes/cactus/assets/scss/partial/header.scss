@@ -34,6 +34,7 @@
       -webkit-filter: grayscale(100%);
     }
   }
+
   #nav {
     color: $color-accent-1;
     letter-spacing: .01em;
@@ -75,6 +76,15 @@
     }
   }
 }
+
+@media print {
+  #header {
+    #nav {
+      display: none;
+    }
+  }
+}
+
 @if $logo-grayout {
   #header:hover {
     #logo {
@@ -83,6 +93,7 @@
     }
   }
 }
+
 @media screen and (max-width: 480px) {
   #header #title {
     display: table;

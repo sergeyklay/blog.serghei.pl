@@ -228,6 +228,7 @@
 // smartphone + phapblet
   }
 }
+
 @media screen and (max-width: 500px) {
   #header-post {
     display: none;
@@ -244,6 +245,7 @@
     }
   }
 }
+
 @media screen and (max-width: 1199px) {
   #header-post {
     #toc {
@@ -251,6 +253,7 @@
     }
   }
 }
+
 @media screen and (min-width: 900px) {
   #header-post {
     #menu-icon-tablet {
@@ -261,6 +264,7 @@
     }
   }
 }
+
 @media screen and (min-width: 1199px) {
   #header-post {
     #actions {
@@ -279,3 +283,9 @@
     }
   }
 };
+
+@media print {
+  #header-post {
+    display: none;
+  }
+}

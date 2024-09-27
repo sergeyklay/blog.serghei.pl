@@ -22,6 +22,7 @@
 - Reduce overall public directory size
 - Rework the post action menu icons size and position making style more stable
 - Increase the size of the post action menu icons
+- Hide site menus and navigation on print view
 
 ## Removed
 
