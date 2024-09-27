@@ -7,7 +7,7 @@
   width: 100%;
   border-top: 1px solid $color-border;
   background: $color-footer-mobile-1;
-  transition: opacity .2s;
+  @include transition(opacity .2s);
 
   a {
     background: none;
