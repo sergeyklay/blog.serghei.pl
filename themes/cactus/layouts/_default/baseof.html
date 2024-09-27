@@ -6,13 +6,15 @@
 {{ partial "head.html" . }}
 <body class="max-width mx-auto px3 ltr">
   {{ if and (not site.Params.Privacy.GoogleTagManager.Disable) (not (eq .Kind "404")) }}
-    {{ with site.Params.Services.GoogleTagManager }}
-      <noscript>
-        <iframe src="https://www.googletagmanager.com/ns.html?id={{ (.ID) }}"
-                height="0"
-                width="0"
-                style="display:none;visibility:hidden"></iframe>
-      </noscript>
+    {{ if eq hugo.Environment "production" }}
+        {{ with site.Params.Services.GoogleTagManager }}
+          <noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id={{ (.ID) }}"
+                    height="0"
+                    width="0"
+                    style="display:none;visibility:hidden"></iframe>
+          </noscript>
+        {{ end }}
     {{ end }}
   {{ end }}
 
@@ -33,5 +35,4 @@
     {{ partial "footer.html" . }}
   </div>
 </body>
-<link rel="stylesheet" href={{ "lib/font-awesome/css/all.min.css" | relURL }}>
 </html>

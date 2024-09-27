@@ -10,19 +10,22 @@
 ## Changed
 
 - Get rid of jQuery as a dependency and rewrite `main.js` in vanilla JS
-- Get rid of downloaded JetBrains Mono fonts and use Google fonts instead
+- Replace downloaded JetBrains Mono fonts font with Google fonts
 - Split config into small parts and convert it to a human-readable yaml
 - Increase font size for the article sidebar
 - Simplified setting of language and direction for the site by using the
   `site.Language.LanguageCode` and `site.Language.LanguageDirection` variables.
 - Theme now looks for custom CSS files in the `assets/css` directory instead of
   the `static/css` directory.
+- Replace FontAwesome icons with Boxicons
+- Reduce overall public directory size
 
 ## Removed
 
 - Remove not used `no-select` SCSS mixin
 - Remove not used `font-family-tt` variable from SCSS
 - Remove dead code from HTML layouts
+- Remove unused `$icon_class_name` variable from HTML layouts
 
 ## Fixed
 

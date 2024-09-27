@@ -1,13 +1,13 @@
 <ul>
-  {{ $icon_class_name := .Scratch.Get "icon_class_name"}}
   {{ $description := (partial "head/description.html" .) }}
   <li>
     <a class="icon facebook-share-link"
        href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}"
        target="_blank"
        rel="nofollow noopener noreferrer"
+       title="Share on Facebook"
        aria-label="Facebook">
-      <i class="fab fa-facebook {{ $icon_class_name }}" aria-hidden="true"></i>
+      <i class="bx bxl-facebook-square" aria-hidden="true"></i>
     </a>
   </li>
   <li>
@@ -15,8 +15,9 @@
        href="https://x.com/intent/tweet?&hashtags={{ delimit .Params.tags `,` }}&url={{ .Permalink }}&text={{ .Title }}"
        target="_blank"
        rel="nofollow noopener noreferrer"
+       title="Share on Twitter"
        aria-label="Twitter">
-      <i class="fab fa-twitter {{ $icon_class_name }}" aria-hidden="true"></i>
+      <i class="bx bxl-twitter" aria-hidden="true"></i>
     </a>
   </li>
   <li>
@@ -24,13 +25,14 @@
        href="https://www.linkedin.com/shareArticle?url={{ .Permalink }}&title={{ .Title }}"
        target="_blank"
        rel="nofollow noopener noreferrer"
+       title="Share on LinkedIn"
        aria-label="LinkedIn">
-      <i class="fab fa-linkedin {{ $icon_class_name }}" aria-hidden="true"></i>
+      <i class="bx bxl-linkedin-square" aria-hidden="true"></i>
     </a>
   </li>
 {{/*  <li>*/}}
 {{/*    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url={{ .Permalink }}&is_video=false&description={{ .Title }}" aria-label="Pinterest">*/}}
-{{/*      <i class="fab fa-pinterest {{ $icon_class_name }}" aria-hidden="true"></i>*/}}
+{{/*      <i class="bx bxl-pinterest" aria-hidden="true"></i>*/}}
 {{/*    </a>*/}}
 {{/*  </li>*/}}
   <li>
@@ -38,13 +40,14 @@
        href="mailto:?subject={{ .Title }}&body=Check out this article: {{ .Permalink }}"
        target="_blank"
        rel="nofollow noopener noreferrer"
+       title="Share via Email"
        aria-label="Email">
-      <i class="fas fa-envelope {{ $icon_class_name }}" aria-hidden="true"></i>
+      <i class="bx bxs-envelope" aria-hidden="true"></i>
     </a>
   </li>
 {{/*  <li>*/}}
 {{/*    <a class="icon" href="https://getpocket.com/save?url={{ .Permalink }}&title={{ .Title }}" aria-label="Pocket">*/}}
-{{/*      <i class="fab fa-get-pocket {{ $icon_class_name }}" aria-hidden="true"></i>*/}}
+{{/*      <i class="bx bxl-pocket" aria-hidden="true"></i>*/}}
 {{/*    </a>*/}}
 {{/*  </li>*/}}
   <li>
@@ -52,13 +55,14 @@
        href="https://new.reddit.com/submit?url={{ .Permalink }}&title={{ .Title }}"
        target="_blank"
        rel="nofollow noopener noreferrer"
-       aria-label="reddit">
-      <i class="fab fa-reddit {{ $icon_class_name }}" aria-hidden="true"></i>
+       title="Share on Reddit"
+       aria-label="Reddit">
+      <i class="bx bxl-reddit" aria-hidden="true"></i>
     </a>
   </li>
 {{/*  <li>*/}}
 {{/*    <a class="icon" href="https://www.tumblr.com/share/link?url={{ .Permalink }}&name={{ .Title }}&description={{ $description }}" aria-label="Tumblr">*/}}
-{{/*      <i class="fab fa-tumblr {{ $icon_class_name }}" aria-hidden="true"></i>*/}}
+{{/*      <i class="bx bxl-tumblr" aria-hidden="true"></i>*/}}
 {{/*    </a>*/}}
 {{/*  </li>*/}}
   <li>
@@ -66,8 +70,12 @@
        href="https://news.ycombinator.com/submitlink?u={{ .Permalink }}&t={{ .Title }}"
        target="_blank"
        rel="nofollow noopener noreferrer"
+       title="Share on Hacker News"
        aria-label="Hacker News">
-      <i class="fab fa-hacker-news {{ $icon_class_name }}" aria-hidden="true"></i>
+      {{/* No HN icon in boxicons set */}}
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="display:inline-block;height:14px;width:14px;">
+        <path d="M448 96c0-35.3-28.7-64-64-64H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96zM21 229.2c0 0 .1-.1 .1-.2s.1-.2 .2-.2c0 .1 0 .3-.1 .4H21zM239.2 384H207.8V281.3L128 128h37.3c41.5 77.7 48.1 95.8 54.1 112c1.6 4.3 3.1 8.5 5.2 13.6c3.2-7 5.1-11.9 7.1-17.3c5.9-15.3 12.8-33.2 53.5-108.3H320L239.2 283.1V384z"/>
+      </svg>
     </a>
   </li>
 </ul>

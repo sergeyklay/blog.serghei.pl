@@ -1,8 +1,12 @@
 <header id="header-post">
-    <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
-    <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="menu-icon" href="#" aria-label="Menu">
+        <i class="bx bx-fw bx-menu bx-sm" aria-hidden="true"></i>
+    </a>
+    <a id="menu-icon-tablet" href="#" aria-label="Menu">
+        <i class="bx bx-fw bx-menu bx-md" aria-hidden="true"></i>
+    </a>
     <a id="top-icon-tablet" href="#" style="display:none;" aria-label="Top of Page">
-        <i class="fas fa-chevron-up fa-lg"></i>
+        <i class="bx bx-chevron-up bx-lg" aria-hidden="true"></i>
     </a>
     <span id="menu">
         {{ partial "menu.html" (dict "menuID" "main" "position" "sidebar" "page" .) }}
@@ -14,27 +18,27 @@
             {{ with $pages.Prev . }}
                 <li>
                     <a class="icon" href="{{ .Permalink }}" aria-label="Previous">
-                        <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                        <i class="bx bx-chevron-left bx-sm" aria-hidden="true"></i>
                     </a>
                 </li>
             {{ end }}
             {{ with $pages.Next . }}
                 <li>
                     <a class="icon" href="{{ .Permalink }}" aria-label="Next">
-                        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                        <i class="bx bx-chevron-right bx-sm" aria-hidden="true"></i>
                     </a>
                 </li>
             {{ end }}
             <li>
                 <a class="icon" id="top-icon" href="#" aria-label="Top of Page">
-                    <i class="fas fa-chevron-up" id="fa-chevron-up-desktop" aria-hidden="true"></i>
+                    <i class="bx bx-chevron-up bx-sm" aria-hidden="true"></i>
                 </a>
             </li>
             <li>
-          <a class="icon" href="#" aria-label="Share">
-            <i class="fas fa-share-alt" aria-hidden="true"></i>
-          </a>
-        </li>
+                <a class="icon icon-share" href="#" aria-label="Share">
+                    <i class="bx bxs-share-alt bx-xs"></i>
+                </a>
+            </li>
         </ul>
         <span id="i-prev" class="info" style="display:none;">Previous post</span>
         <span id="i-next" class="info" style="display:none;">Next post</span>
@@ -43,8 +47,6 @@
     </span>
     <br/>
     <div id="share" style="display: none">
-        {{/* TODO: Sort out with icon_class_name */}}
-        {{ .Scratch.Set "icon_class_name" "" }}
         {{ partial "share.html" . }}
     </div>
     {{ if not .Site.Params.tocInline }}

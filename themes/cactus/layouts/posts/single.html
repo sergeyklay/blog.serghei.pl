@@ -34,7 +34,7 @@
             {{ $showReadTime := .Site.Params.showReadTime | default false }}
             {{ if $showReadTime }}
                 <div class="article-read-time">
-                    <i class="far fa-clock"></i>
+                    <i class="bx bx-time-five" aria-hidden="true"></i>
                     {{ $readTime := math.Round (div (countwords .Content) 220.0) }}
                     <span itemprop="timeRequired" content="PT{{ $readTime }}M">{{ $readTime }} minute read</span>
                 </div>

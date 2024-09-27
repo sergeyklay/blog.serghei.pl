@@ -99,12 +99,11 @@ function setupArticleMenu() {
 /**
  * Sets up a click event listener to scroll the page to the top.
  *
- * @param {string} selector - The CSS selector for the element.
+ * @param {Element} element - The DOM element that triggers the scroll to top.
  */
-function setupScrollToTop(selector) {
-  const topIcon = document.querySelector(selector);
-  if (topIcon) {
-    topIcon.addEventListener('click', function (event) {
+function setupScrollToTop(element) {
+  if (element) {
+    element.addEventListener('click', function (event) {
       event.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
@@ -204,15 +203,15 @@ function hideSubMenusOnScroll(navFooter, tocFooter, shareFooter) {
 document.addEventListener('DOMContentLoaded', function () {
   // Shows the responsive navigation menu on mobile
   setupMenuToggle(
-    '#header > #nav > ul > .icon',
+    '#home-menu-icon',
     '#header > #nav > ul',
     'responsive'
   );
 
   setupArticleMenu();
 
-  setupScrollToTop('#top-icon');
-  setupScrollToTop('#top-icon-tablet');
+  setupScrollToTop(document.querySelector('#top-icon'));
+  setupScrollToTop(document.querySelector('#top-icon-tablet'));
 
   handleMenuVisibilityOnScroll(
     document.querySelector('#menu'),
@@ -228,12 +227,12 @@ document.addEventListener('DOMContentLoaded', function () {
   );
 
   setupShareToggle(
-    document.querySelector('.fas.fa-share-alt'),
+    document.querySelector('#actions .icon-share'),
     document.querySelector('#share')
   );
 
-  setupHoverToggle('.fas.fa-chevron-left', '#i-prev');
-  setupHoverToggle('.fas.fa-chevron-right', '#i-next');
-  setupHoverToggle('#fa-chevron-up-desktop', '#i-top');
-  setupHoverToggle('.fas.fa-share-alt', '#i-share');
+  setupHoverToggle('.icon > .bx-chevron-left', '#i-prev');
+  setupHoverToggle('.icon > .bx-chevron-right', '#i-next');
+  setupHoverToggle('.icon > .bx-chevron-up', '#i-top');
+  setupHoverToggle('.icon > .bxs-share-alt', '#i-share');
 });
