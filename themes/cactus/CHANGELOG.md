@@ -20,6 +20,7 @@
   the `static/css` directory.
 - Replace FontAwesome icons with Boxicons
 - Reduce overall public directory size
+- Rework the post action menu icons size and position making style more stable
 
 ## Removed
 
