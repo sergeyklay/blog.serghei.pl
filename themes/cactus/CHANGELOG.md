@@ -12,7 +12,6 @@
 
 - Get rid of jQuery as a dependency and rewrite `main.js` in vanilla JS
 - Replace downloaded JetBrains Mono fonts font with Google fonts
-- Split config into small parts and convert it to a human-readable yaml
 - Increase font size for the article sidebar
 - Simplified setting of language and direction for the site by using the
   `site.Language.LanguageCode` and `site.Language.LanguageDirection` variables.

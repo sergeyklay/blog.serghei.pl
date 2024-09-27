@@ -15,9 +15,10 @@
     {{ partial "head/icons.html" . }}
 
     <link rel="manifest" type="application/manifest+json" href="{{ "manifest.webmanifest" | relURL }}" title="Manifest">
-    {{- with .OutputFormats.Get "rss" }}
-        {{ printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
+    {{ range .AlternativeOutputFormats -}}
+        <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}" title="{{site.Title | safeHTML}}">
     {{ end }}
+
 
     {{ partial "head/js.html" . }}
     {{ partial "head/analytics.html" . }}

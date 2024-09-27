@@ -1,0 +1,200 @@
+baseURL = 'https://blog.serghei.pl/'
+
+copyright = '© 2024 Serghei Iakovlev'
+
+disableHugoGeneratorInject = true
+
+# Keep title short to prevent overflow.
+# There’s no official guidance on this, but 40 characters for
+# mobile and 60 for desktop is roughly the sweet spot.
+#
+# NB: Final title of shareable pages will be this plus the
+#     title of the page. Eg. "Archive - Serghei Iakovlev"
+title = "Serghei's Blog"
+
+enableRobotsTXT = true
+
+# When using ref or relref to resolve page links and a link cannot
+# resolve, it will be logged with this log level.
+refLinksErrorLevel = 'WARNING'
+
+theme = 'cactus'
+
+[params]
+  # Site description. Used in meta description
+  description = 'Tech enthusiast, engineer, and nerd. Specializing in creating smart products and automating processes. I enjoy gadgets, hiking, and biking. Proficient in Emacs and Org mode.'
+
+  # SEO keywords. Used in 'meta name="keywords"' tag.
+  # May be overridden by .Keywords or .Tags in front matter.
+  keywords = ['Serghei', 'Iakovlev', 'Serghei Iakovlev', 'blog', 'emacs', 'org', 'org-mode', 'orgmode', 'elisp']
+
+  # Colour scheme. Options: dark, light, white, classic
+  colorTheme = 'classic'
+
+  logo = 'images/logo.png'
+
+  # Posts date format, for example: 2006-01-02. For details see:
+  # https://gohugo.io/functions/format/#hugo-date-and-time-templating-reference
+  dateFormat = '2006-01-02'
+
+  # Sections to be displayed in:
+  # - main page
+  # - RSS feeds
+  # - search index
+  # - ...
+  mainSections = ['posts']
+
+  showAllPostsArchive = true
+
+  # Home page settings
+  mainSectionTitle = 'Posts'
+  mainSectionUrl = '/posts'
+
+  postsOnHomePage = 10
+
+  # Show projects list by default (if projects data file exists).
+  showProjectsList = true
+  projectsSectionTitle = 'Projects'
+  projectsUrl = 'https://github.com/sergeyklay?tab=repositories&q=&type=source&language=&sort=stargazers'
+
+  # Post page settings
+  showUpdated = true
+  showReadTime = true
+  tocInline = false
+  showAuthor = false
+
+  # You can add multiple custom stylesheets which will be loaded after the main
+  # theme css. The path is relative to the 'assets' folder. For example:
+  #
+  # css: ['css/custom.css']
+  #
+  # This will load the file 'assets/css/custom.css'.
+  css = []
+
+  [params.privacy]
+    [params.privacy.googleTagManager]
+      disable = false
+      respectDoNotTrack = true
+
+  [params.services]
+    [params.services.googleTagManager]
+      id = 'GTM-5C92Z8CB'
+
+[languages]
+  [languages.en]
+    languageCode = 'en'
+    languageDirection = 'ltr'
+    languageName = 'English'
+    weight = 1
+
+# For more see https://gohugo.io/content-management/menus/
+[menus]
+  [[menus.main]]
+    identifier = 'home'
+    name = 'Home'
+    pageRef = '/'
+    weight = 1
+  [[menus.main]]
+    identifier = 'about'
+    name = 'About'
+    pageRef = '/about'
+    weight = 2
+  [[menus.main]]
+    identifier = 'rss'
+    name = 'RSS'
+    url = '/rss.xml'
+    weight = 3
+  [[menus.main]]
+    identifier = 'archive'
+    name = 'Archive'
+    pageRef = '/archive'
+    weight = 4
+  [[menus.main]]
+    identifier = 'tags'
+    name = 'Tags'
+    pageRef = '/tags'
+    weight = 5
+
+# We have just the default tags and categories taxonomy.
+[taxonomies]
+  tag = 'tags'
+  category = 'categories'
+
+[outputs]
+  home = ['html', 'rss', 'manifest']
+  page= ['html']
+  rss = ['rss']
+  section = ['html', 'rss']
+  taxonomy = ['html', 'rss']
+  term = ['html', 'rss']
+
+[outputFormats]
+  [outputFormats.rss]
+    baseName = 'rss'
+    mediaType = 'application/rss+xml'
+
+  [outputFormats.maninfest]
+    # The .webmanifest extension is specified in the Media type registration
+    # section of the specification (the response of the manifest file should
+    # return Content-Type: application/manifest+json).
+    #
+    # For more see: https://w3c.github.io/manifest/#media-type-registration=
+    name = 'Manifest'
+    mediaType = 'application/manifest+json'
+    baseName = 'manifest'
+    rel = 'manifest'
+    isPlainText = true
+    isHTML = false
+    noUgly = false
+    notAlternative = true
+
+[privacy]
+  [privacy.googleAnalytics]
+    # Should be true if you want to use GTM instead of GA.
+    disable = true
+
+# For more see https://gohugo.io/getting-started/configuration-markup/
+[markup]
+  defaultMarkdownHandler = 'goldmark'
+  [markup.tableOfContents]
+    endLevel = 4
+    ordered = false
+    startLevel = 2
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ''
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    style = 'catppuccin-latte'
+    tabWidth = 4
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.parser]
+      [markup.goldmark.parser.attribute]
+        block = false
+
+# If enableGitInfo is true, it will override any lastmod dates in our
+# front matter. We should at least allow ourselves to manually override
+# this value in the front matter.
+[frontmatter]
+  lastmod = ['lastmod', ':git', 'modified', 'date', 'publishdate', 'pubdate', 'published']
+
+[module]
+  [module.hugoVersion]
+    extended = false
+    min = '0.134.0'
+
+[build]
+  # This is used to dump and array of the class attributes, id attributes,
+  # and tags of every HTML element within your published site.
+  # This datd can be used as a source when removing unused CSS from site.
+  # For more see: https://gohugo.io/hugo-pipes/postprocess/#css-purging-with-postcss
+  [build.buildStats]
+    disableClasses = false
+    disableIDs = false
+    disableTags = false
+    enable = true

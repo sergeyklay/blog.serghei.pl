@@ -12,7 +12,7 @@
 
             <script src="{{ $gtmScript.RelPermalink }}" integrity="{{ $gtmScript.Data.Integrity }}" crossorigin="anonymous"></script>
         {{- end -}}
-    {{ else }}{{/* If GTM is disabled delegate rest to Hugo */}}
+    {{ else }}{{/* If GTM is disabled delegate the rest to Hugo */}}
         {{ partial "google_analytics.html" . }}
     {{ end }}
 {{ end }}
