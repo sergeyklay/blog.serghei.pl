@@ -21,6 +21,7 @@
 - Replace FontAwesome icons with Boxicons
 - Reduce overall public directory size
 - Rework the post action menu icons size and position making style more stable
+- Increase the size of the post action menu icons
 
 ## Removed
 

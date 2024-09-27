@@ -148,9 +148,14 @@
       // This is for the icons like
       // <i class="bx ...." aria-hidden="true"></i>
       .bx {
+        font-size: 1.75rem;
         width: 30px;
         height: 30px;
         text-align: center;
+      }
+
+      .bx-sm {
+        font-size: 1.30rem!important;
       }
     }
 
