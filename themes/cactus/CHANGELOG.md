@@ -42,5 +42,6 @@
 - Correct mixins definition (order of browser prefixes)
 - Use JetBrains Mono font only for `pre` and `code`, and Inconsolata for the
   rest of content
-- Correct placement of `blockquote`, `.pullquote`, and `.caption` style
-  definition in SCSS
+- Fix placement of `blockquote`, `.pullquote`, and `.caption` style definition
+  in SCSS
+- Fix setting margin for `blockquote`'s `footer` in SCSS
