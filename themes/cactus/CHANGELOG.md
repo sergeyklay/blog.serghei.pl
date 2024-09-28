@@ -12,7 +12,7 @@
 
 - Get rid of jQuery as a dependency and rewrite `main.js` in vanilla JS
 - Replace downloaded JetBrains Mono fonts font with Google fonts
-- Increase font size for the article sidebar
+- Increase font size for the overall site
 - Simplified setting of language and direction for the site by using the
   `site.Language.LanguageCode` and `site.Language.LanguageDirection` variables.
 - Theme now looks for custom CSS files in the `assets/css` directory instead of
@@ -22,6 +22,9 @@
 - Rework the post action menu icons size and position making style more stable
 - Increase the size of the post action menu icons
 - Hide site menus and navigation on print view
+- Use JetBrains Mono font for `pre`, `code`,`time`, `#header`, `#footer`,
+  `#projects a` and all headings, and Nunito for the rest of content
+- Change color accents fow `white` theme to be more neutral
 
 ## Removed
 
@@ -39,8 +42,6 @@
 - (PR [#135](https://github.com/monkeyWzr/hugo-theme-cactus/pull/135))
 - Correct some social share links
 - Correct mixins definition (order of browser prefixes)
-- Use JetBrains Mono font only for `pre` and `code`, and Inconsolata for the
-  rest of content
 - Fix placement of `blockquote`, `.pullquote`, and `.caption` style definition
   in SCSS
 - Fix setting margin for `blockquote`'s `footer` in SCSS

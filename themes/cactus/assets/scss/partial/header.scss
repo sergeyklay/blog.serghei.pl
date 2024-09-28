@@ -1,6 +1,7 @@
 #header {
   margin: 0 auto 2rem;
   width: 100%;
+  font-family: $font-family-mono;
 
   h1,
   .h1 {
@@ -15,11 +16,13 @@
 
     @include antialias();
   }
+
   a {
     background: none;
     color: inherit;
     text-decoration: none;
   }
+
   #logo {
     display: inline-block;
     float: left;

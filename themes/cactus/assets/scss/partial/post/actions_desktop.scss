@@ -5,6 +5,7 @@
   display: inline-block;
   float: right;
   z-index: 100;
+  font-family: $font-family-mono;
 
   a {
     background: none;
@@ -181,7 +182,7 @@
     overflow: auto;
     margin-top: 1rem;
     padding-right: 2rem;
-    max-width: 25em;
+    max-width: 20em;
     max-height: calc(95vh - 7rem);
     text-align: right;
 
@@ -193,7 +194,7 @@
 
     nav > ul > li {
       color: $color-text;
-      font-size: .85rem;
+      font-size: .8rem;
 
       &:before {
         color: $color-accent-1;
@@ -203,7 +204,7 @@
     }
     nav > ul > li > ul > li {
       color: $color-meta;
-      font-size: .72rem;
+      font-size: .7rem;
 
       &:before {
         color: $color-accent-1;
@@ -214,7 +215,7 @@
     }
     nav > ul > li > ul > li > ul > li {
       color: darken($color-meta, 20%);
-      font-size: .65rem;
+      font-size: .6rem;
     }
     .toc-level-5 {
       display: none;

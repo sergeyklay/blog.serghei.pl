@@ -5,8 +5,8 @@
       itemtype="https://schema.org/WebPage">
 {{ partial "head.html" . }}
 <body class="max-width mx-auto px3 ltr">
-  {{ if and (not site.Params.Privacy.GoogleTagManager.Disable) (not (eq .Kind "404")) }}
-    {{ if eq hugo.Environment "production" }}
+  {{ if eq hugo.Environment "production" }}
+    {{ if and (not site.Params.Privacy.GoogleTagManager.Disable) (not (eq .Kind "404")) }}
         {{ with site.Params.Services.GoogleTagManager }}
           <noscript>
             <iframe src="https://www.googletagmanager.com/ns.html?id={{ (.ID) }}"
@@ -35,4 +35,7 @@
     {{ partial "footer.html" . }}
   </div>
 </body>
+
+{{ partial "head/js.html" . }}
+
 </html>

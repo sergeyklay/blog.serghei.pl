@@ -29,7 +29,7 @@ theme = 'cactus'
   keywords = ['Serghei', 'Iakovlev', 'Serghei Iakovlev', 'blog', 'emacs', 'org', 'org-mode', 'orgmode', 'elisp']
 
   # Colour scheme. Options: dark, light, white, classic
-  colorTheme = 'classic'
+  colorTheme = 'white'
 
   logo = 'images/logo.png'
 
