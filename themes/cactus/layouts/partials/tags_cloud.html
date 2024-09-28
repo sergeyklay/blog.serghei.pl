@@ -1,0 +1,18 @@
+{{/* TODO: If this file is renderd on main page (home page),
+     need add limit to tags count and a link to tags page */}}
+
+{{ $allRegularPagesCount := len .Site.RegularPages }}
+{{ $maxFontSize := 3 }}
+{{ $minFontSize := 0.85 }}
+{{ $baseFontSize := 0.85 }}
+{{ $scaleFactor := 2.5 }}
+
+{{ range $tag, $taxonomy := .Site.Taxonomies.tags.Alphabetical }}
+    {{ $fontSize := add $baseFontSize (mul $scaleFactor (div (float $taxonomy.Count) $allRegularPagesCount)) }}
+    {{ $finalFontSize := cond (gt $fontSize $maxFontSize) $maxFontSize (cond (lt $fontSize $minFontSize) $minFontSize $fontSize) }}
+    <a style="font-size: {{ $finalFontSize }}rem;"
+       href="{{ $taxonomy.Page.Permalink }}"
+       data-tag-index="{{ $tag }}">
+        {{- $taxonomy.Name -}}
+    </a>
+{{ end }}

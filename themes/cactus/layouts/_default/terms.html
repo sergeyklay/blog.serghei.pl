@@ -15,21 +15,7 @@
                 </div>
             {{ end }}
             <div class="tag-cloud-tags">
-                {{ $allRegularPagesCount := len .Site.RegularPages }}
-                {{ $maxFontSize := 2 }}
-                {{ $minFontSize := 0.85 }}
-                {{ $baseFontSize := 0.85 }}
-                {{ $scaleFactor := 1.15 }}
-
-                {{ range $tag, $taxonomy := .Site.Taxonomies.tags.ByCount }}
-                    {{ $fontSize := add $baseFontSize (mul $scaleFactor (div (float $taxonomy.Count) $allRegularPagesCount)) }}
-                    {{ $finalFontSize := cond (gt $fontSize $maxFontSize) $maxFontSize (cond (lt $fontSize $minFontSize) $minFontSize $fontSize) }}
-                    <a style="font-size: {{ $finalFontSize }}rem;"
-                       href="{{ $taxonomy.Page.Permalink }}"
-                       data-tag-index="{{ $tag }}">
-                        {{- $taxonomy.Name -}}
-                    </a>
-                {{ end }}
+                {{ partial "tags_cloud.html" . }}
             </div>
         </div>
         {{ else if (eq .Type "categories")}}

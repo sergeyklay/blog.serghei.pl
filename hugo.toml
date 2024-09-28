@@ -63,6 +63,8 @@ theme = 'cactus'
   tocInline = false
   showAuthor = false
 
+  tagsOverview = false
+
   # You can add multiple custom stylesheets which will be loaded after the main
   # theme css. The path is relative to the 'assets' folder. For example:
   #
@@ -107,13 +109,13 @@ theme = 'cactus'
   [[menus.main]]
     identifier = 'archive'
     name = 'Archive'
-    pageRef = '/archive'
+    pageRef = '/posts'
     weight = 4
-  [[menus.main]]
-    identifier = 'tags'
-    name = 'Tags'
-    pageRef = '/tags'
-    weight = 5
+#  [[menus.main]]
+#    identifier = 'tags'
+#    name = 'Tags'
+#    pageRef = '/tags'
+#    weight = 5
 
 # We have just the default tags and categories taxonomy.
 [taxonomies]
