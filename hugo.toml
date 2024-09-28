@@ -133,7 +133,7 @@ theme = 'cactus'
     baseName = 'rss'
     mediaType = 'application/rss+xml'
 
-  [outputFormats.maninfest]
+  [outputFormats.manifest]
     # The .webmanifest extension is specified in the Media type registration
     # section of the specification (the response of the manifest file should
     # return Content-Type: application/manifest+json).
