@@ -148,11 +148,6 @@ theme = 'cactus'
     noUgly = false
     notAlternative = true
 
-[privacy]
-  [privacy.googleAnalytics]
-    # Should be true if you want to use GTM instead of GA.
-    disable = true
-
 # For more see https://gohugo.io/getting-started/configuration-markup/
 [markup]
   defaultMarkdownHandler = 'goldmark'
