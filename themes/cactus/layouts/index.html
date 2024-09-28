@@ -3,6 +3,7 @@
         {{ with .Site.Params.description }}
             <p>{{ . | $.Page.RenderString }}</p>
         {{ end }}
+        {{ partial "optional-about.html" . }}
     </section>
 
     <section id="writing">
