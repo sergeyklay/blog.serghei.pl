@@ -32,17 +32,9 @@ For details on the changes from the original theme, please refer to the
 To change the main color theme, you can use the `colorTheme` configuration
 parameter, as shown below:
 
-```yaml
-params:
-  colorTheme: dark
-```
-
-The demo site uses a feature that splits configuration into separate files,
-so if your project follows the same structure, the `colorTheme` parameter should
-be located in the `params.yaml` file, simply at the root, like this:
-
-```yaml
-colorTheme: light
+```toml
+[params]
+  colorTheme = 'dark'
 ```
 
 The currently supported themes are: dark, light, white, and classic.
@@ -58,10 +50,9 @@ the theme provides a way for you to add your own custom styles to your project.
 
 To do this, add the following to your project configuration:
 
-```yaml
-params:
-  css:
-    - css/custom.css
+```toml
+[params]
+  css = ['css/custom.css']
 ```
 
 You can add multiple custom stylesheets which will be loaded after the main
@@ -72,6 +63,35 @@ system. Please note that the path is relative to the root of your project.
 
 This allows you to override or extend the theme’s default styles with your own
 customizations.
+
+### Navigation
+
+Main menu which appears below site header and footer can be configured using
+`menus` parameter in the configuration file. The following is an example of how
+to configure the main menu:
+
+```toml
+[menus]
+  [[menu.main]]
+    name = 'Home'
+    pageRef = '/'
+    weight = 1
+  
+  [[menu.main]]
+    name = 'Archive'
+    pageRef = '/posts'
+    weight = 2
+  
+  [[menu.main]]
+    name = 'Tags'
+    pageRef = '/tags'
+    weight = 3
+  
+  [[menu.main]]
+    name = 'About'
+    pageRef = '/about'
+    weight = 4
+```
 
 ### Integrating Analytics with Cactus 2
 
@@ -88,32 +108,32 @@ To enable Google Analytics, you first need to obtain your tracking ID from the
 Google Analytics dashboard. Once you have it, add the following to your
 configuration file:
 
-~~~ toml
+```toml
 [services]
   [services.googleAnalytics]
     ID = 'G-MEASUREMENT_ID'
-~~~
+```
 
 This snippet tells Hugo to include the Google Analytics tracking code in your
 site. However, merely providing the ID is not enough. You must also explicitly
 enable Google Analytics by modifying the privacy settings:
 
-~~~ toml
+```toml
 [privacy]
   [privacy.googleAnalytics]
     disable = false
-~~~
+```
 
 For a more privacy-conscious implementation, you can configure Ed to respect
 users' “Do Not Track” browser settings. This ensures that visitors who prefer
 not to be tracked are excluded from analytics data:
 
-~~~ toml
+```toml
 [privacy]
   [privacy.googleAnalytics]
     disable = false
     respectDoNotTrack = true
-~~~
+```
 
 When `respectDoNotTrack` is set to `true`, Cactus 2 will honor the user's
 preference, making your site more respectful of user privacy choices.
@@ -127,23 +147,23 @@ and more — through a single platform.
 
 To configure Google Tag Manager, add your container ID in the following format:
 
-~~~ toml
+```toml
 [params]
   [params.services]
     [params.services.googleTagManager]
       id = 'GTM-MEASUREMENT_ID'
-~~~
+```
 
 As with Google Analytics, simply adding the ID does not enable tracking by
 itself. You must adjust the corresponding privacy settings to activate it:
 
-~~~ toml
+```toml
 [params]
   [params.privacy]
     [params.privacy.googleTagManager]
       disable = false
       respectDoNotTrack = true
-~~~
+```
 
 Here, setting `disable` to `false` activates Google Tag Manager, while the
 `respectDoNotTrack` option enables the same privacy-conscious behavior as

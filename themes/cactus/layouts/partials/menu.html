@@ -20,7 +20,7 @@ Renders a menu for the given menu ID.
       </ul>
     </span>
   {{ else }}
-    <nav id="nav">
+    <nav{{ if eq $position "header" }} id="nav"{{ end }}>
       <ul>
         {{- if eq $position "header" }}
           <li class="icon" id="home-menu-icon">
@@ -41,7 +41,7 @@ Renders a menu for the given menu ID.
   {{- range $i, $e := .menuEntries }}
     {{- $attrs := dict "href" $e.URL }}
 
-    {{- $identifier := "" }}
+    {{- $identifier := printf "%d" $i }}
     {{- with $e.Identifier }}
       {{- $identifier = $e.Identifier }}
     {{- end }}
@@ -69,11 +69,6 @@ Renders a menu for the given menu ID.
            {{- end }}
          {{- end -}}
       >{{ $e.Name  }}</a>
-      {{- with .Children }}
-        <ul>
-          {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
-        </ul>
-      {{- end }}
     </li>
   {{- end }}
 {{- end }}
