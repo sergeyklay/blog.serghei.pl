@@ -146,7 +146,7 @@ theme = 'cactus'
     isPlainText = true
     isHTML = false
     noUgly = false
-    notAlternative = true
+    notAlternative = false
 
 # For more see https://gohugo.io/getting-started/configuration-markup/
 [markup]
