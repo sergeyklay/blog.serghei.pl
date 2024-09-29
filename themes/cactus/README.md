@@ -185,7 +185,7 @@ following checks:
 
 This ensures consistent and clean display of author names throughout the site.
 
-### Practical Usage Scenarios
+#### Practical Usage Scenarios
 
 1. **Single Author Blogs:** If your site primarily has one author, define the
   global default in `hugo.toml` and skip specifying the author in individual
