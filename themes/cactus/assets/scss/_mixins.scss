@@ -17,10 +17,28 @@
   background-repeat: repeat-x;
 }
 
-@mixin text-size-adjust($value) {
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  text-size-adjust
+// Controls the text inflation algorithm used on some smartphones and tablets.
+// Other browsers will ignore this property.
+//
+// Usage: @include text-size-adjust(none);
+
+@mixin text-size-adjust ($value) {
   -webkit-text-size-adjust: $value;
+     -moz-text-size-adjust: $value;
       -ms-text-size-adjust: $value;
           text-size-adjust: $value;
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Box Sizing
+// Sets how the total width and height of an element is calculated.
+//
+// Usage: @include box-sizing(border-box);
+
+@mixin box-sizing ($value) {
+  -webkit-box-sizing: $value;
+     -moz-box-sizing: $value;
+          box-sizing: $value;
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  Transitions
@@ -42,4 +60,16 @@
   -webkit-border-radius: $args;
      -moz-border-radius: $args;
           border-radius: $args;
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Filter
+// Applies graphical effects like blur or color shift to an element.
+//
+// Usage: @include filter(drop-shadow(0 2px 5px rgba(0, 0, 0, .3)));
+
+@mixin filter($value) {
+  -webkit-filter: $value;
+     -moz-filter: $value;
+       -o-filter: $value;
+          filter: $value;
 }

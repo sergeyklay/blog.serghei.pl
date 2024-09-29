@@ -1,13 +1,13 @@
 @import "variables";
+@import "mixins";
 @import "colors/{{ .Param `colorTheme` | default `white` }}";
 @import "util";
-@import "mixins";
 @import "extend";
 
 *,
 *:before,
 *:after {
-  box-sizing: border-box;
+  @include box-sizing(border-box);
 }
 html {
   margin: 0;
@@ -30,8 +30,6 @@ body {
   flex: 1;
 
   @include antialias();
-
-  @extend $base-style !optional;
 }
 .content {
   position: relative;

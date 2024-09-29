@@ -33,8 +33,7 @@
     background-size: $logo-width $logo-height;
     background-repeat: no-repeat;
     @if $logo-grayout {
-      filter: grayscale(100%);
-      -webkit-filter: grayscale(100%);
+      @include filter(grayscale(100%));
     }
   }
 
@@ -91,8 +90,7 @@
 @if $logo-grayout {
   #header:hover {
     #logo {
-      filter: none;
-      -webkit-filter: none;
+      @include filter(none);
     }
   }
 }

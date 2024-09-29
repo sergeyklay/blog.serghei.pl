@@ -59,7 +59,7 @@
   max-width: 64rem;
 }
 .border-box {
-  box-sizing: border-box;
+  @include box-sizing(border-box);
 }
 .m0 {
   margin: 0;
