@@ -93,6 +93,115 @@ to configure the main menu:
     weight = 4
 ```
 
+### Configuring Author Selection
+
+Cactus 2 offers flexible author management that adapts to both simple and
+complex content needs. By leveraging Hugo’s templating capabilities and the
+theme’s configuration structure, you can control how authors are displayed
+without redundancy. This section explains how to set up author defaults,
+customize individual posts, and maintain clean frontmatter for your content.
+
+#### Author Display in Cactus 2
+
+Cactus 2 uses the author’s name for displaying attribution on individual post
+pages, right below the title. This ensures that readers can easily see who wrote
+the article. Additionally, the author’s name is included in the HTML metadata of
+each page, such as:
+
+```html
+<meta name="author" content="John Doe">
+```
+
+If you prefer not to show the author on your posts, you can disable this feature
+by adding the following setting to your configuration:
+
+```toml
+[params]
+  showAuthor = false
+```
+
+#### Setting a Global Default Author
+
+In many cases, a site has a primary author for the majority of posts. Instead of
+specifying the author in every single page’s frontmatter, Cactus 2 allows you to
+define a global default in your Hugo configuration. To set this up, add the
+following snippet to your `hugo.toml` file:
+
+```toml
+[params.author]
+  name = 'John Doe'
+  email = 'john@example.com'
+```
+
+This snippet registers `John Doe` as the default author for any post that doesn’t
+explicitly specify an author. Now, when your content files omit the author
+parameter, Cactus 2 will automatically use this global setting.
+
+#### Overriding the Author per Page
+
+For cases where an individual post has a different author or multiple contributors,
+simply include the author parameter in the frontmatter of that page. Cactus 2
+supports both single-author and multi-author configurations:
+
+- **Single Author:** If a post has one unique author, specify it as a string:
+  ```markdown
+  +++
+  title = 'Exploring Hugo'
+  date = 2024-09-19T14:08:00+02:00
+  author = 'Jane Smith'
+  +++
+  ```
+- **Multiple Authors:** For posts with more than one author, use a list of strings:
+  ```markdown
+  +++
+  title = 'Exploring Hugo'
+  date = 2024-09-19T14:08:00+02:00
+  author = ['Jane Doe', 'John Smith']
+  +++
+  ```
+
+Cactus 2 will format and display these authors appropriately, using commas to
+separate the names.
+
+#### Template Logic and Author Handling
+
+The logic behind this setup is handled in a partial template, ensuring that the
+theme intelligently selects the correct author value. The template performs the
+following checks:
+
+1. **Checks for a Page-Specific Author:** If the frontmatter includes the author
+  parameter, it takes precedence. The theme distinguishes between a single string
+  and a list of strings, applying appropriate formatting.
+2. **Falls Back to Global Default:** If no author is defined at the page level,
+  the template falls back to the global value defined in `[params.author]` in
+  your configuration file.
+
+This ensures consistent and clean display of author names throughout the site.
+
+### Practical Usage Scenarios
+
+1. **Single Author Blogs:** If your site primarily has one author, define the
+  global default in `hugo.toml` and skip specifying the author in individual
+  posts. This reduces redundancy and simplifies the frontmatter structure.
+2. **Multi-Author or Guest Posts:** For collaborative projects, specify multiple
+  authors directly in the frontmatter. The theme will handle the formatting
+  automatically.
+3. **Guest Posts with Defaults:** You can use the global setting for regular
+  posts and specify authors explicitly only for guest contributions, maintaining
+  clarity and reducing manual repetition.
+
+#### Important Considerations
+
+- **Default Fallback:** When both the frontmatter and `params.author.name` are
+  empty, Cactus 2 will return an empty string, leading to no author being
+  displayed. Always ensure that either the frontmatter or the global
+  configuration is populated.
+- **Email and Other Metadata:** While `params.author.email` can be set globally,
+  the current template logic does not expose email addresses by default.
+  If you wish to include email metadata in your posts, additional adjustments
+  would be required.
+
+
 ### Integrating Analytics with Cactus 2
 
 Cactus 2 provides seamless integration options to harness the power of Google

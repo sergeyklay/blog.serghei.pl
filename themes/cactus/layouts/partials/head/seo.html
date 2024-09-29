@@ -8,8 +8,9 @@
     {{- end }}
 
     <meta name="keywords" content="{{ partial "head/keywords.html" . }}">
+    {{ $showAuthor := .Site.Params.showAuthor | default false }}
     {{- $author := partial "head/author.html" . }}
-    {{- if $author }}
+    {{ if (and $showAuthor (ne $author ""))}}
         <meta name="author" content="{{ $author }}">
     {{- end }}
 {{- end -}}

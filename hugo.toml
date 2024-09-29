@@ -64,7 +64,6 @@ theme = 'cactus'
   showUpdated = true
   showReadTime = true
   tocInline = false
-  showAuthor = false
 
   tagsOverview = false
 
@@ -75,6 +74,11 @@ theme = 'cactus'
   #
   # This will load the file 'assets/css/custom.css'.
   css = []
+
+  showAuthor = false
+  [params.author]
+    name = 'Serghei Iakovlev'
+    email = 'contact@serghei.pl'
 
   [params.privacy]
     [params.privacy.googleTagManager]

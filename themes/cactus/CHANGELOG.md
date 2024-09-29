@@ -26,6 +26,7 @@
   `#projects a` and all headings, and Nunito for the rest of content
 - Change color accents fow `white` theme to be more neutral
 - Rework pagination style
+- Rework defining of the author's name in the post layout
 
 ## Removed
 
