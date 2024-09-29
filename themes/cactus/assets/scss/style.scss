@@ -14,7 +14,7 @@ html {
   padding: 0;
   height: 100%;
   border-top: 2px solid $color-text;
-  color-scheme: $css-color-scheme;
+  color-scheme: $css-color-scheme; // TODO: move this to :root ?
   @include text-size-adjust(100%);
 }
 body {

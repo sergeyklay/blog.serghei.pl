@@ -34,6 +34,8 @@
 - Remove dead code from HTML layouts
 - Remove unused `$icon_class_name` variable from HTML layouts
 - Remove custom pagination layout and use Hugo's default pagination layout
+- Remove not used anywhere SCSS files:
+  - `rtl.scss`
 
 ## Fixed
 
