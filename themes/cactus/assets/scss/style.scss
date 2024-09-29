@@ -53,6 +53,7 @@ body {
 
   code {
     @include hyphens(manual);
+    font-size: 16px;
   }
 
   a {
