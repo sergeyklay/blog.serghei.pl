@@ -2,11 +2,10 @@
 
 ## Added
 
-- Add `text-size-adjust` SCSS mixin
+- Add `text-size-adjust`, `transition`, and `border-radius` SCSS mixins
 - Add `manifest.webmanifest` support
 - Add Google Tag Manager support
 - Add ability to hide site title using `hide_site_title` and use only page title
-- Add `transition` SCSS mixin
 
 ## Changed
 

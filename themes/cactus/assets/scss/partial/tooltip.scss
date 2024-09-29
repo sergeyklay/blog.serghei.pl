@@ -21,7 +21,7 @@
   white-space: pre;
   content: attr(aria-label);
   background: $color-text;
-  border-radius: 3px;
+  @include border-radius(3px);
   opacity: 0;
 }  
 // This is the tooltip arrow

@@ -16,7 +16,7 @@ ul.pagination {
       vertical-align: middle;
       font-size: .9rem;
       line-height: 1.95;
-      border-radius: 5px;
+      @include border-radius(5px);
       background-image: none;
       text-decoration: none;
 
