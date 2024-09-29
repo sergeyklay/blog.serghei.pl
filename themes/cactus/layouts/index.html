@@ -8,7 +8,8 @@
 
     <section id="writing">
         {{ $mainSections := .Site.Params.mainSections | default (slice "posts") }}
-        {{ $mainPosts := (sort ( where .Site.RegularPages "Type" "in" $mainSections ) "Date" "desc") }}
+        {{ $pages := where .Site.RegularPages "Type" "in" $mainSections }}
+        {{ $pages = $pages.ByDate.Reverse }}
 
         <h2 class="h1">
             <a href="{{ .Site.Params.mainSectionUrl | relURL }}">
@@ -26,7 +27,7 @@
 
         {{ $dataFormat := .Site.Params.dateFormat | default "2006-01-02" }}
         <ul class="post-list">
-            {{ range (first (.Site.Params.postsOnHomePage | default 10) $mainPosts) }}
+            {{ range (first (.Site.Params.postsOnHomePage | default 10) $pages) }}
             <li class="post-item">
                 <div class="meta">
                     <time datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}' itemprop="datePublished">

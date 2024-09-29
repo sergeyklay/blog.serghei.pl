@@ -1,13 +1,16 @@
 {{ define "main" }}
 
 <article id="archive">
-  <ul class="post-list">
-    {{ $pages := .Paginator.Pages }}
-    {{ if .Site.Params.showAllPostsArchive }}
-      {{ $pages = .Pages }}
-    {{ end }}
+  {{ $mainSections := .Site.Params.mainSections | default (slice "posts") }}
+  {{ $pages := where .Site.RegularPages "Type" "in" $mainSections }}
+  {{ if not .Site.Params.showAllPostsArchive }}
+    {{ $pages = (.Paginate $pages).Pages }}
+  {{ end }}
 
-    {{ range (sort $pages "Date" "desc") }}
+  {{ $pages = $pages.ByDate.Reverse }}
+
+  <ul class="post-list">
+    {{ range $pages }}
       {{ $pageYear := (.Date.Format "2006") }}
       {{ if (ne $pageYear ($.Scratch.Get "year")) }}
         {{ $.Scratch.Set "year" $pageYear }}
@@ -20,7 +23,7 @@
           </time>
         </div>
         <span>
-          <a href="{{ .RelPermalink }}" class="text-slate-500">
+          <a href="{{ .RelPermalink }}">
             {{- if .Title }} {{ .Title }} {{ else }} Untitled {{ end -}}
           </a>
         </span>
@@ -28,8 +31,8 @@
     {{ end }}
   </ul>
 
-  {{ if eq .Site.Params.showAllPostsArchive false }}
-    {{ partial "pagination.html" . }}
+  {{ if not .Site.Params.showAllPostsArchive }}
+      {{ template "_internal/pagination.html" . }}
   {{ end }}
 
 </article>

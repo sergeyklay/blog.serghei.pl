@@ -25,6 +25,7 @@
 - Use JetBrains Mono font for `pre`, `code`,`time`, `#header`, `#footer`,
   `#projects a` and all headings, and Nunito for the rest of content
 - Change color accents fow `white` theme to be more neutral
+- Rework pagination style
 
 ## Removed
 
@@ -32,6 +33,7 @@
 - Remove not used `font-family-tt` variable from SCSS
 - Remove dead code from HTML layouts
 - Remove unused `$icon_class_name` variable from HTML layouts
+- Remove custom pagination layout and use Hugo's default pagination layout
 
 ## Fixed
 

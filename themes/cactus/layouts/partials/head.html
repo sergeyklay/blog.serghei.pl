@@ -21,7 +21,7 @@
     {{ partial "head/icons.html" . }}
 
     {{ range .AlternativeOutputFormats -}}
-        <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}" title="{{ .Name }}">
+        <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}" title="{{ site.Title | safeHTML }}">
     {{ end }}
 
     {{ partial "head/analytics.html" . }}

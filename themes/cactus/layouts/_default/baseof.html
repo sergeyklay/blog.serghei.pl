@@ -28,7 +28,7 @@
       {{ partial "header.html" . }}
     {{ end }}
 
-    <main>
+    <main class="{{ .Kind }}" role="main">
       {{ block "main" . }}{{ end }}
     </main>
 

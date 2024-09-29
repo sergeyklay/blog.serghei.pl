@@ -1,25 +1,44 @@
-.pagination {
-  display: inline-block;
-  margin-top: 2rem;
+ul.pagination {
+  list-style: none;
+  margin: 2rem 0;
   width: 100%;
   text-align: center;
 
-  .page-number {
-    color: $color-text;
-    font-size: .8rem;
-  }
-  a {
-    padding: 4px 6px;
-    border-radius: 5px;
-    // background-color: $color-accent-1
-    background-image: none;
-    color: $color-text;
-    text-decoration: none;
-  }
-  a:hover {
-    background-image: none;
-  }
-  a:hover:not(.active) {
-    color: $color-accent-2;
+  li {
+    display: inline-block;
+    vertical-align: middle;
+
+    a {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      vertical-align: middle;
+      font-size: .9rem;
+      line-height: 1.95;
+      border-radius: 5px;
+      background-image: none;
+      text-decoration: none;
+
+      &:hover {
+        background-image: none;
+        color: $color-accent-2;
+      }
+
+      &[aria-label="First"],
+      &[aria-label="Previous"],
+      &[aria-label="Next"],
+      &[aria-label="Last"] {
+        font-size: 1.2rem;
+        line-height: 1.5;
+      }
+    }
+
+    &.active {
+      a {
+        background-color: $color-accent-1;
+        color: $color-background;
+      }
+    }
   }
 }

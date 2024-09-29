@@ -20,6 +20,9 @@ refLinksErrorLevel = 'WARNING'
 
 theme = 'cactus'
 
+[pagination]
+  pagerSize = 10
+
 [params]
   # Site description. Used in meta description
   description = 'Tech enthusiast, engineer, and nerd. Specializing in creating smart products and automating processes. I enjoy gadgets, hiking, and biking. Proficient in Emacs and Org mode.'
@@ -44,7 +47,7 @@ theme = 'cactus'
   # - ...
   mainSections = ['posts']
 
-  showAllPostsArchive = true
+  showAllPostsArchive = false
 
   # Home page settings
   mainSectionTitle = 'Posts'
