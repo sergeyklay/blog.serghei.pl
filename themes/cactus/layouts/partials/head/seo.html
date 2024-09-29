@@ -2,15 +2,14 @@
 
 {{- if eq .Kind "404" }}
     <meta name="robots" content="noindex,nofollow">
+    <meta name="referrer" content="no-referrer">
 {{ else }}
     {{- if and site.Config.Privacy.GoogleAnalytics.Disable site.Params.Privacy.GoogleTagManager.Disable }}
         <meta name="referrer" content="no-referrer">
     {{- end }}
 
     <meta name="keywords" content="{{ partial "head/keywords.html" . }}">
-    {{ $showAuthor := .Site.Params.showAuthor | default false }}
-    {{- $author := partial "head/author.html" . }}
-    {{ if (and $showAuthor (ne $author ""))}}
+    {{ with partial "head/author.html" . }}
         <meta name="author" content="{{ $author }}">
     {{- end }}
 {{- end -}}
