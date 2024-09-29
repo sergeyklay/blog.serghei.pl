@@ -1,5 +1,6 @@
 baseURL = 'https://blog.serghei.pl/'
 
+# A "copyright"-line to be added to RSS/Atom files and the footer.
 copyright = '© 2024 Serghei Iakovlev'
 
 disableHugoGeneratorInject = true
@@ -9,7 +10,7 @@ disableHugoGeneratorInject = true
 # mobile and 60 for desktop is roughly the sweet spot.
 #
 # NB: Final title of shareable pages will be this plus the
-#     title of the page. Eg. "Archive - Serghei Iakovlev"
+#     title of the page. E.g. "Archive | Serghei's Blog"
 title = "Serghei's Blog"
 
 enableRobotsTXT = true
@@ -162,24 +163,11 @@ theme = 'cactus'
   defaultMarkdownHandler = 'goldmark'
   [markup.tableOfContents]
     endLevel = 4
-    ordered = false
-    startLevel = 2
   [markup.highlight]
-    codeFences = true
-    guessSyntax = false
-    hl_Lines = ''
-    lineNoStart = 1
-    lineNos = false
-    lineNumbersInTable = true
-    noClasses = true
     style = 'catppuccin-latte'
-    tabWidth = 4
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
-    [markup.goldmark.parser]
-      [markup.goldmark.parser.attribute]
-        block = false
 
 # If enableGitInfo is true, it will override any lastmod dates in our
 # front matter. We should at least allow ourselves to manually override
@@ -189,7 +177,7 @@ theme = 'cactus'
 
 [module]
   [module.hugoVersion]
-    extended = false
+    extended = true
     min = '0.134.0'
 
 [build]
