@@ -120,8 +120,10 @@ by adding the following setting to your configuration:
   showAuthor = false
 ```
 
-Finally, the built-in RSS template, which used by the theme,  will render the
-author, if present, from your site configuration.
+Furthermore, the author is also used in the built-in RSS templates and the feed
+templates provided by the Cactus 2 theme. If the author is defined in the site
+configuration, it will automatically be included in these feeds, allowing
+subscribers to see the post’s attribution directly within their RSS readers.
 
 #### Setting a Global Default Author
 
@@ -139,10 +141,6 @@ following snippet to your `hugo.toml` file:
 This snippet registers `John Doe` as the default author for any post that doesn’t
 explicitly specify an author. Now, when your content files omit the author
 parameter, Cactus 2 will automatically use this global setting.
-
-Also, Hugo will use the `name` and `email` parameters from the site configuration
-to set the author metadata in the RSS feed. If they are not set, Hugo will not
-include the author metadata in the feed.
 
 #### Overriding the Author per Page
 
@@ -207,7 +205,6 @@ This ensures consistent and clean display of author names throughout the site.
   the current template logic does not expose email addresses by default.
   If you wish to include email metadata in your posts, additional adjustments
   would be required.
-
 
 ### Integrating Analytics with Cactus 2
 
