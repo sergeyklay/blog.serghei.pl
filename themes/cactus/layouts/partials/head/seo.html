@@ -10,6 +10,6 @@
 
     <meta name="keywords" content="{{ partial "head/keywords.html" . }}">
     {{ with partial "head/author.html" . }}
-        <meta name="author" content="{{ $author }}">
+        <meta name="author" content="{{ . }}">
     {{- end }}
 {{- end -}}
