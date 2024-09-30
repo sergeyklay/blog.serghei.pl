@@ -7,6 +7,8 @@
 - Add `manifest.webmanifest` support
 - Add Google Tag Manager support
 - Add ability to hide site title using `hide_site_title` and use only page title
+- Add `rel="next""` and `rel="prev"` head links to the post layout to indicate
+  the relationship between component URLs in a paginated series.
 
 ## Changed
 

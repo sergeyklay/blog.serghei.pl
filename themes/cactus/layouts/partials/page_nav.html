@@ -17,14 +17,14 @@
             {{ $pages := .CurrentSection.Pages.ByPublishDate }}
             {{ with $pages.Prev . }}
                 <li>
-                    <a class="icon" href="{{ .Permalink }}" aria-label="Previous">
+                    <a class="icon" href="{{ .Permalink | absURL }}" rel="prev" aria-label="Previous">
                         <i class="bx bx-chevron-left" aria-hidden="true"></i>
                     </a>
                 </li>
             {{ end }}
             {{ with $pages.Next . }}
                 <li>
-                    <a class="icon" href="{{ .Permalink }}" aria-label="Next">
+                    <a class="icon" href="{{ .Permalink | absURL }}" rel="next" aria-label="Next">
                         <i class="bx bx-chevron-right" aria-hidden="true"></i>
                     </a>
                 </li>
