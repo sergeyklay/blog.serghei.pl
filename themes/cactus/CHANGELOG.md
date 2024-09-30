@@ -9,6 +9,8 @@
 - Add ability to hide site title using `hide_site_title` and use only page title
 - Add `rel="next""` and `rel="prev"` head links to the post layout to indicate
   the relationship between component URLs in a paginated series.
+- Add `rel="sitemap"` head link to the site layout to indicate the location of
+  the sitemap file.
 
 ## Changed
 

@@ -26,6 +26,7 @@
         {{- end -}}
     {{ end }}
 
+    <link rel="sitemap" type="application/xml" href="{{ "sitemap.xml" | relURL }}" title="Sitemap">
     {{ with partial "head/author.html" . }}
         <meta name="author" content="{{ . }}">
     {{- end }}
