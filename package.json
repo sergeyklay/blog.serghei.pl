@@ -1,6 +1,13 @@
 {
+  "name": "blog.serghei.pl",
+  "description": "Personal blog",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergeyklay/blog.serghei.pl.git"
+  },
+  "private": "true",
   "scripts": {
-    "server": "HUGO_RESOURCEDIR='./resources' HUGO_ENV=development hugo server --logLevel info --buildDrafts --buildFuture --ignoreCache --disableFastRender",
-    "build": "HUGO_RESOURCEDIR='./resources' HUGO_ENV=production hugo --gc --logLevel info --cleanDestinationDir --printUnusedTemplates --printPathWarnings --printMemoryUsage --printI18nWarnings --buildDrafts --buildExpired --buildFuture --forceSyncStatic"
+    "server": "hugo server --environment development --logLevel info --buildDrafts --buildFuture --ignoreCache --disableFastRender",
+    "build": "hugo --environment production --gc --logLevel info --cleanDestinationDir --printUnusedTemplates --printPathWarnings --printMemoryUsage --printI18nWarnings --buildDrafts --buildExpired --buildFuture --forceSyncStatic"
   }
 }
